@@ -1,0 +1,15 @@
+{
+  "name": "to-speech-google",
+  "version": "0.1.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "@google-cloud/text-to-speech": "^3.2.6",
+    "@koa/cors": "^3.1.0",
+    "koa": "^2.13.1",
+    "koa-bodyparser": "^4.3.0"
+  },
+  "devDependencies": {
+    "vite": "^2.4.4"
+  }
+}
