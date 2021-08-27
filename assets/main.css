@@ -1,0 +1,11 @@
+
+textarea {
+  width: 80vw;
+  height: 400px;
+}
+
+.control {
+  height: 80px;
+  display: flex;
+  align-items: flex-start;
+}

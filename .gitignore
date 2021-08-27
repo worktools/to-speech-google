@@ -1,3 +1,6 @@
 
 node_modules/
 credentials/
+
+/ecosystem.config.js
+/*.mp3
