@@ -1,12 +1,11 @@
 
 const Koa = require('koa');
 const cors = require('@koa/cors');
-const bodyParser = require('koa-bodyparser');
-
+const body = require('koa-body');
 
 const app = new Koa();
 app.use(cors());
-app.use(bodyParser());
+app.use(body());
 
 // Imports the Google Cloud client library
 const textToSpeech = require('@google-cloud/text-to-speech');
@@ -67,7 +66,10 @@ let requestVoice = async (text, lang) => {
 }
 
 app.use(async ctx => {
-  let binaryData = await requestVoice((ctx.request.body.text || '').trim(), ctx.request.body.lang);
+
+  let data = JSON.parse(ctx.request.body)
+
+  let binaryData = await requestVoice((data.text || '文本内容为空').trim(), data.lang);
   // console.log('binary', binaryData)
   ctx.response.set('content-type', 'audio/mp3');
   ctx.body = binaryData;

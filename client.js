@@ -1,9 +1,14 @@
 
 let load = async ()=>{
+  let prev = document.querySelector('audio');
+  if (prev != null) {
+    prev.remove()
+  }
+
   let response = await fetch('http://localhost:3001', {
     method: 'POST',
     body: JSON.stringify({
-      text: '魔镜魔镜, Calcit 是最好的语言吗?'
+      text: document.querySelector('textarea').value || '魔镜魔镜, Calcit 是最好的语言吗?'
     }),
     responseType: 'blob'
   })
@@ -24,7 +29,7 @@ let load = async ()=>{
   let audio = new Audio();
   audio.src = url;
   audio.controls = true
-  document.body.appendChild(audio)
+  document.querySelector('.control').appendChild(audio)
   // audio.onended = function(evt) {
   //   URL.revokeObjectURL(objectUrl);
   // };
