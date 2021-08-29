@@ -67,7 +67,7 @@ let requestVoice = async (text, lang) => {
 
 app.use(async ctx => {
 
-  let data = JSON.parse(ctx.request.body)
+  let data = ctx.request.body;
 
   let binaryData = await requestVoice((data.text || '文本内容为空').trim(), data.lang);
   // console.log('binary', binaryData)
